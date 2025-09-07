@@ -16,7 +16,68 @@
         <!--  -->
 
             <div class="container">
-                
+                <section class="drawing-board">
+                    <canvas>
+
+                    </canvas>
+                </section>
+                <section class="tools-board">
+                    <div class="tools-board__items">
+                        <div class="tools-board__item">
+                            <label class="title">shakllar</label>
+                            <ul class="options">
+                                <li class="option tool" id="rectangle">
+                                    <img src="./icons/rectangle.svg" alt="rectangle">
+                                    <span>to'rtburchak</span>
+                                </li>
+                                <li class="option tool" id="circle">
+                                    <img src="./icons/circle.svg" alt="circle">
+                                    <span>doira</span>
+                                </li>
+                                <li class="option tool" id="triangle">
+                                    <img src="./icons/triangle.svg" alt="triangle">
+                                    <span>uchburchak</span>
+                                </li>
+                                <li class="option">
+                                    <input type="checkbox" id="fill-color">
+                                    <label for="fill-color">Rangni to'ldirish</label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tools-board__item">
+                            <label class="title">variantlar</label>
+                            <ul class="options">
+                                <li class="option tool active" id="brush">
+                                    <img src="./icons/brush.svg" alt="brush">
+                                    <span>chizish</span>
+                                </li>
+                                <li class="option tool" id="eraser">
+                                    <img src="./icons/eraser.svg" alt="eraser">
+                                    <span>o'chirg'ich</span>
+                                </li>
+                                <li class="option">
+                                    <input type="range" id="size-slider" min="1" max="30" value="5">
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tools-board__item colors">
+                            <label class="title">ranglar</label>
+                            <ul class="options">
+                                <li class="option"></li>
+                                <li class="option selected"></li>
+                                <li class="option"></li>
+                                <li class="option"></li>
+                                <li class="option">
+                                    <input type="color" id="color-picker" value="#4a98f7">
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tools-board__item buttons">
+                            <button class="clear-canvas">O'chirish</button>
+                            <button class="save-image">Saqlash</button>
+                        </div>
+                    </div>
+                </section>
             </div>
 
         <!--  -->
