@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'sans-serif';
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(
+        90deg,
+        rgba(2, 0, 36, 1) 0%,
+        rgba(9, 9, 121, 1) 35%,
+        rgba(0, 212, 255, 1) 100%
+    );
+}
+
+.container {
+    gap: 10px;
+    width: 100%;
+    display: flex;
+    padding: 10px;
+    max-width: 1050px;
+}
+
+section {
+    background: #fff;
+}
+
+.title {
+    text-transform: uppercase;
+}
+
+.container .tools-board {
+    width: 210px;
+    padding: 15px 22px;
+}
+
+.tools-board .tools-board__items .tools-board__item {
+    margin-bottom: 20px;
+}
+
+.tools-board__item .options {
+    list-style: none;
+    margin: 10px 0 0 5px;
+}
+
+.tools-board__item .options .option {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.options .option:is(:hover, .active) img {
+    filter: invert(17%) sepia(90%) saturate(3000%) hue-rotate(900deg) brightness(100%) contrast(100%);
+}
+
+.option :where(span, label) {
+    cursor: pointer;
+    color: #5a6168;
+    padding-left: 10px;
+}
+
+.option :is(:hover, .active) :where(span, label) {
+    color: #4a98f7;
+}
+
+.option #fill-color {
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+}
+
+.option #fill-color:checked ~ label {
+    color: #4a98f7;
+}
+
+.option #size-slider {
+    width: 100%;
+    height: 5px;
+    margin-top: 10px;
+}
+
+.option input[type="checkbox"],
+.option input[type="range"] {
+    accent-color: #0073ff;
+}
+
+.colors .options {
+    display: flex;
+    justify-content: space-between;
+}
+
+.colors .options .option {
+    width: 20px;
+    height: 20px;
+    margin-top: 3px;
+    position: relative;
+    border-radius: 50%;
+}
+
+.colors .options .option:nth-child(1) {
+    background-color: #fff;
+    border: 1px solid #bfbfbf;
+}
+
+.colors .options .option:nth-child(2) {
+    background-color: #000;
+}
+
+.colors .options .option:nth-child(3) {
+    background-color: #e02020;
+}
+
+.colors .options .option:nth-child(4) {
+    background-color: #6dd400;
+}
+
+.colors .options .option:nth-child(5) {
+    background-color: #4a98f7;
+}
+
+.colors .options .option.selected::before {
+    top: 50%;   
+    left: 50%;
+    content: '';
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    background: inherit;
+    border-radius: inherit;
+    border: 2px solid #fff;
+    transform: translate(-52%, -48%);   
+}
+
+.colors .options .option:first-child.selected::before {
+    border-color: #ccc;
+}
+
+.colors .options .option #color-picker {
+    opacity: 0;
+    cursor: pointer;
+}
+
+.buttons button {
+    width: 100%;
+    border: none;
+    color: #fff;
+    outline: none;
+    cursor: pointer;
+    background: none;
+    padding: 11px 0px;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    margin-bottom: 13px;
+}
+
+.buttons .clear-canvas {
+    color: #6c757d;
+    transition: all 0.3s ease;
+    border: 1px solid #6c757d;
+}
+
+.buttons .clear-canvas:hover {
+    color: #fff;
+    background: #6c757d;
+}
+
+.buttons .save-image {
+    background: #4a98f7;
+    border: 1px solid #4a98f7;
+}
+
+.container .drawing-board {
+    flex: 1;
+    overflow: hidden;
+}
+
+.drawing-board canvas {
+    width: 100%;
+    height: 100%;
+}
+
