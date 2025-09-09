@@ -34,6 +34,7 @@ section {
 }
 
 .title {
+    letter-spacing: 1.5px;
     text-transform: uppercase;
 }
 
@@ -58,19 +59,20 @@ section {
     margin-bottom: 10px;
 }
 
-.options .option:is(:hover, .active) img {
+.option:is(:hover, .active) img {
     filter: invert(17%) sepia(90%) saturate(3000%) hue-rotate(900deg) brightness(100%) contrast(100%);
 }
 
 .option :where(span, label) {
-    cursor: pointer;
     color: #5a6168;
+    cursor: pointer;
     padding-left: 10px;
 }
 
-.option :is(:hover, .active) :where(span, label) {
+.option:is(:hover, .active) :where(span, label) {
     color: #4a98f7;
 }
+
 
 .option #fill-color {
     width: 14px;
@@ -137,7 +139,7 @@ section {
     background: inherit;
     border-radius: inherit;
     border: 2px solid #fff;
-    transform: translate(-52%, -48%);   
+    transform: translate(-52%, -52%);   
 }
 
 .colors .options .option:first-child.selected::before {
@@ -187,4 +189,3 @@ section {
     width: 100%;
     height: 100%;
 }
-
