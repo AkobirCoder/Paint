@@ -3,7 +3,8 @@ window.addEventListener('DOMContentLoaded', () => {
     // Global variables:
 
     const canvas = document.querySelector('canvas'),
-        toolBtns = document.querySelectorAll('.tool');
+        toolBtns = document.querySelectorAll('.tool'),
+        fillColor = document.querySelector('#fill-color');
 
 
     // Variables:
@@ -45,7 +46,15 @@ window.addEventListener('DOMContentLoaded', () => {
     // Draw rectangle:
 
     const drawRectangle = (event) => {
-        ctx.strokeRect(event.offsetX, event.offsetY, prevMouseX - event.offsetX, prevMouseY - event.offsetY)
+        // if (!fillColor.checked) {
+        //     return ctx.strokeRect(event.offsetX, event.offsetY, prevMouseX - event.offsetX, prevMouseY - event.offsetY);
+        // }
+        
+        // ctx.fillRect(event.offsetX, event.offsetY, prevMouseX - event.offsetX, prevMouseY - event.offsetY);
+        
+        fillColor.checked 
+            ? ctx.fillRect(event.offsetX, event.offsetY, prevMouseX - event.offsetX, prevMouseY - event.offsetY)
+            : ctx.strokeRect(event.offsetX, event.offsetY, prevMouseX - event.offsetX, prevMouseY - event.offsetY);        
     }
 
 
