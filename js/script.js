@@ -133,6 +133,12 @@ window.addEventListener('DOMContentLoaded', () => {
             case "triangle":
                 drawTriangle(event);
                 break;
+
+            case 'eraser':
+                ctx.strokeStyle = '#fff';
+                ctx.lineTo(event.offsetX, event.offsetY);
+                ctx.stroke();
+                break;
         
             default:
                 break;
