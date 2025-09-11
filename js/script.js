@@ -5,7 +5,9 @@ window.addEventListener('DOMContentLoaded', () => {
     const canvas = document.querySelector('canvas'),
         toolBtns = document.querySelectorAll('.tool'),
         fillColor = document.querySelector('#fill-color'),
-        sizeSlider = document.querySelector('#size-slider');
+        sizeSlider = document.querySelector('#size-slider'),
+        colorBtns = document.querySelectorAll('.colors .option'),
+        colorPicker = document.querySelector('#color-picker');
 
 
     // Variables:
@@ -14,6 +16,7 @@ window.addEventListener('DOMContentLoaded', () => {
         isDrawing = false,
         brushWidth = 3,
         selectedTool = 'brush',
+        selectedColor = '#000',
         prevMouseX,
         prevMouseY,
         snapshot;
@@ -39,6 +42,10 @@ window.addEventListener('DOMContentLoaded', () => {
         ctx.beginPath();
 
         ctx.lineWidth = brushWidth;
+
+        ctx.strokeStyle = selectedColor;
+
+        ctx.fillStyle = selectedColor;
 
         snapshot = ctx.getImageData(0, 0, canvas.width, canvas.height);
     }
@@ -153,6 +160,31 @@ window.addEventListener('DOMContentLoaded', () => {
     sizeSlider.addEventListener('change', () => {
         brushWidth = sizeSlider.value;
     });
+
+
+    // Set color to shapes:
+
+    colorBtns.forEach(btn => {
+        btn.addEventListener('click', (event) => {
+            document.querySelector('.options .selected').classList.remove('selected');
+
+            btn.classList.add('selected');
+
+            const bgColor = window.getComputedStyle(btn).getPropertyValue('background-color');
+
+            selectedColor = bgColor;
+        });
+    });
+
+
+    // Set color from color-picker:
+
+    colorPicker.addEventListener('change', () => {
+        colorPicker.parentElement.style.background = colorPicker.value;
+
+        colorPicker.parentElement.click();
+    });
+
 
     // Stop drawing:
 
