@@ -84,6 +84,23 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
 
+    // Draw triangle:
+
+    const drawTriangle = (event) => {
+        ctx.beginPath();
+
+        ctx.moveTo(prevMouseX, prevMouseY);
+
+        ctx.lineTo(event.offsetX, event.offsetY);
+
+        ctx.lineTo(prevMouseX * 2 - event.offsetX, event.offsetY);
+
+        ctx.closePath();
+
+        fillColor.checked ? ctx.fill() : ctx.stroke();
+    }
+
+
     // Drawing:
 
     const draw = (event) => {
@@ -103,6 +120,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
             case "circle":
                 drawCircle(event);
+                break;
+
+            case "triangle":
+                drawTriangle(event);
                 break;
         
             default:
