@@ -7,7 +7,9 @@ window.addEventListener('DOMContentLoaded', () => {
         fillColor = document.querySelector('#fill-color'),
         sizeSlider = document.querySelector('#size-slider'),
         colorBtns = document.querySelectorAll('.colors .option'),
-        colorPicker = document.querySelector('#color-picker');
+        colorPicker = document.querySelector('#color-picker'),
+        clearCanvasBtn = document.querySelector('.clear-canvas'),
+        saveImageBtn = document.querySelector('.save-image');
 
 
     // Variables:
@@ -22,11 +24,25 @@ window.addEventListener('DOMContentLoaded', () => {
         snapshot;
 
 
+    // Set canvas background:
+
+    const setCanvasBackground = () => {
+        ctx.fillStyle = '#fff';
+
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = selectedColor;
+    }
+
+
     // Set canvas width and height:
 
     window.addEventListener('load', () => {
         canvas.width = canvas.offsetWidth;
+
         canvas.height = canvas.offsetHeight;
+
+        setCanvasBackground();
     });
 
 
@@ -189,6 +205,28 @@ window.addEventListener('DOMContentLoaded', () => {
         colorPicker.parentElement.style.background = colorPicker.value;
 
         colorPicker.parentElement.click();
+    });
+
+
+    // Clear canvas button:
+
+    clearCanvasBtn.addEventListener('click', () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        setCanvasBackground();
+    });
+
+
+    // Save like image our paint:
+
+    saveImageBtn.addEventListener('click', () => {
+        const link = document.createElement('a');
+
+        link.download = `Akobir-Paint${Date.now()}.jpg`;
+
+        link.href = canvas.toDataURL();
+
+        link.click();
     });
 
 
