@@ -58,6 +58,32 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
 
+    // Draw circle:
+
+    // const drawCircle = (event) => {
+    //     ctx.beginPath();
+
+    //     const radius = Math.sqrt(Math.pow(prevMouseX - event.offsetX, 2)) + Math.pow(prevMouseY - event.offsetY, 2);
+
+    //     ctx.arc(prevMouseX, prevMouseY, 50, 0, 2 * Math.PI);
+
+    //     fillColor.checked ? ctx.fill() : ctx.stroke();
+    // }
+
+    const drawCircle = (event) => {
+        ctx.beginPath();
+
+        const radius = Math.sqrt(
+            Math.pow(event.offsetX - prevMouseX, 2) +
+            Math.pow(event.offsetY - prevMouseY, 2)
+        );
+
+        ctx.arc(prevMouseX, prevMouseY, radius, 0, 2 * Math.PI);
+
+        fillColor.checked ? ctx.fill() : ctx.stroke();
+    }
+
+
     // Drawing:
 
     const draw = (event) => {
@@ -73,6 +99,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
             case 'rectangle':
                 drawRectangle(event); 
+                break;
+
+            case "circle":
+                drawCircle(event);
                 break;
         
             default:
